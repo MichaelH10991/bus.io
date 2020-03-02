@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 
 const app = express();
 
-app.use(bodyParser);
+// app.use(bodyParser);
 
 app.get("/", (req, res) => {
   res.json({ welcome: "to /" });

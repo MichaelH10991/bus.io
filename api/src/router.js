@@ -1,12 +1,19 @@
 import express from "express";
-import data from "./mock_res";
-import controller from "./controller.js";
+import {
+  getBusses,
+  getManyBusses,
+  saveBus,
+  findPlaces,
+  removeBus
+} from "./controller.js";
 const router = express.Router();
 
 router.get("/busses", (req, res) => {
-  const query = req.query;
-  data.get_busses_number.bus_number = query.bus_number;
-  res.json(data.get_busses_number);
+  getManyBusses(req, res);
+});
+
+router.get("/busses/:number", (req, res) => {
+  getBusses(req, res);
 });
 
 router.post("/busses", (req, res) => {
