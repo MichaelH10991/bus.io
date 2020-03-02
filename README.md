@@ -1,10 +1,14 @@
-# busio
+# bus.io
 
 ## This app will:
 
 - Allow you to store and retreive bus routes
 - Update/alert you via sms or email on 'watched' busses
 - Save favourite destinations and provide appropriate busses to those destinations
+
+## Running
+
+run 
 
 ## UI
 
@@ -14,7 +18,7 @@ some ui stuff
 This is a brief outline of the API calls that can be made to interface with external APIs and the internal mongoDB database.
 
 ### Request
-- GET /busses/number
+- GET /busses
 ### Response
 ```json 
 {
@@ -23,7 +27,19 @@ This is a brief outline of the API calls that can be made to interface with exte
 }
 ```
 ### Request
-- POST /busses/number
+- POST /busses
+### Body
+```json
+{
+    "bus_number": 23,
+    "geo_info": {
+        "country": "country",
+        "county": "county",
+        "city": "city",
+        "geo": "geo"
+    }
+}
+```
 ### Response
 ```json
 {
@@ -31,11 +47,18 @@ This is a brief outline of the API calls that can be made to interface with exte
 }
 ```
 ### Request
-- GET /busses/place
+- GET /places
 ### Response
 ```json
 {
     
 }
 ```
-
+### Request
+- GET /bus/:id
+### Response
+```json
+{
+    
+}
+```
