@@ -1,7 +1,8 @@
 import data from "./mock_res";
 
 export const getBusses = (req, res) => {
-  const query = req.query;
+  const query = req.number;
+  console.log(query);
   data.get_busses_number.bus_number = query.bus_number;
   return res.json(data.get_busses_number);
 };

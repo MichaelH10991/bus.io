@@ -24,8 +24,12 @@ router.get("/places", (req, res) => {
   res.json(data.get_busses_place);
 });
 
-router.delete("bus/:id", (req, res) => {
+router.delete("/bus/:id", (req, res) => {
   res.json({ message: `deleted bus: ${req.id}` });
+});
+
+router.get("/ping", (req, res) => {
+  res.json({ version: process.env.API_VERSION });
 });
 
 export default router;

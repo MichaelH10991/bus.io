@@ -7,9 +7,8 @@ const app = express();
 // app.use(bodyParser);
 
 app.get("/", (req, res) => {
-  res.json({ welcome: "to /" });
+  res.json({ message: "welcome to /" });
 });
-
 app.use("/api", router);
 
 module.exports = app;

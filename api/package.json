@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "transpile": "babel src --out-dir bin/ --source-maps inline --watch && nodemon index.js",
-    "start": "nodemon index.js"
+    "transpile": "babel src --out-dir bin/ --source-maps inline --watch & ",
+    "start": "npm run transpile && nodemon index.js"
   },
   "author": "Michael Humphries",
   "license": "ISC",
