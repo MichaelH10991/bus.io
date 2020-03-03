@@ -1,9 +1,22 @@
 version: "3"
 services: 
   api:
+    container_name: bus_api
     build: api/
     ports: 
       - "8080:8080"
     volumes:
       - .:/api
     restart: always
+  database:
+    image: 'mongo'
+    container_name: 'bus_db'
+    env_file:
+      - ./secrets/mongo_docker.env
+    volumes:
+      - ./api/db/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./api/db/mongo-volume:/data/db
+    ports:
+      - '27017-27019:27017-27019'
+      
+      

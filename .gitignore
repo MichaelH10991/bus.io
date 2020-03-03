@@ -1,1 +1,5 @@
 node_modules
+mongo_docker.env
+secrets.js
+bin/
+mongo-volume
