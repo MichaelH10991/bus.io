@@ -1,6 +1,6 @@
 export default {
   get_busses_number: {
-    times: ["08:30", "09:00"],
+    times: ["08:30", "09:00", "09:30", "10:00"],
     next_bus: "8:30"
   },
   post_busses_number: {

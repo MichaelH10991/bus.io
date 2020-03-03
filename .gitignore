@@ -2,5 +2,8 @@ node_modules
 mongo_docker.env
 secrets.js
 bin/
-api/bin
 mongo-volume
+
+api/bin/app
+api/bin/controller
+api/bin/router
