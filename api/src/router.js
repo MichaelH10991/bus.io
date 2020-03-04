@@ -1,23 +1,33 @@
 import express from "express";
 import {
-  getBusses,
+  getBus,
   getManyBusses,
   saveBusses,
   findPlaces,
   removeBus
 } from "./controller.js";
+
 const router = express.Router();
 
+/**
+ * Get single bus from external api
+ */
+router.get("/busses/:number", (req, res) => {
+  console.log(`GET: /busses/${req.params.number}`);
+  getBus(req, res);
+});
+
+/**
+ * A get request to an external api with a body with an array of busses
+ */
 router.get("/busses", (req, res) => {
   console.log(`GET: /busses`);
   getManyBusses(req, res);
 });
 
-router.get("/busses/:number", (req, res) => {
-  console.log(`GET: /busses/${req.params.number}`);
-  getBusses(req, res);
-});
-
+/**
+ * post to mongo with json body
+ */
 router.post("/busses", (req, res) => {
   console.log(`POST: /busses`);
   saveBusses(req, res);
@@ -35,7 +45,7 @@ router.delete("/bus/:id", (req, res) => {
 
 router.get("/ping", (req, res) => {
   console.log(`GET: /ping`);
-  res.json({ version: process.env.API_VERSION });
+  res.json({ version: process.env.API_VERSION, api_status: process.env.ENV });
 });
 
 export default router;

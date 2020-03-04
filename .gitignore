@@ -1,5 +1,8 @@
 node_modules
+
 mongo_docker.env
+bus_api.env
+
 secrets.js
 bin/
 mongo-volume

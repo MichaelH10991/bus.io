@@ -11,6 +11,7 @@ app.use(bodyParser.json());
 app.get("/", (req, res) => {
   res.json({ message: "welcome to /" });
 });
+
 app.use("/api", router);
 
 module.exports = app;

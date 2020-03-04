@@ -8,5 +8,12 @@ export default {
   },
   get_busses_place: {
     busses: ["23", "22"]
+  },
+  post_bus: {
+    bus_id: 12345,
+    bus_number: 23,
+    country: "England",
+    county: "Gloucestershire",
+    date_created: Date.now()
   }
 };
