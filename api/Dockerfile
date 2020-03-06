@@ -2,8 +2,12 @@ FROM node:13
 
 WORKDIR /busio
 
-COPY src/ .babelrc db/ ./docker-entrypoint.sh index.js package-lock.json package.json ./
+COPY .babelrc ./docker-entrypoint.sh index.js package-lock.json package.json ./
+COPY src/ src/
+COPY db/ db/
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
+RUN npm i && mkdir bin/
+
+# ENTRYPOINT ["docker-entrypoint.sh"]
 
 CMD ["npm", "start"]

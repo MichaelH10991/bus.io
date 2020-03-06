@@ -5,7 +5,8 @@ bus_api.env
 
 secrets.js
 bin/
-mongo-volume
+data
+init-mongo.js
 
 api/bin/app
 api/bin/controller

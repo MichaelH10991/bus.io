@@ -10,7 +10,6 @@ export default {
     busses: ["23", "22"]
   },
   post_bus: {
-    bus_id: 12345,
     bus_number: 23,
     country: "England",
     county: "Gloucestershire",

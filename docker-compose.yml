@@ -21,7 +21,7 @@ services:
         - ./secrets/mongo_docker.env
       volumes:
         - ./api/db/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
-        - ./api/db/mongo-volume:/data/db
+        - ./data:/data/db
       ports:
         - '27017-27019:27017-27019'
   

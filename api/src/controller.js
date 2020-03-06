@@ -1,5 +1,5 @@
 import data from "./mock_data/mock_res";
-import bus from "./schemas";
+import bus from "./schemas/bus";
 import mongoose from "mongoose";
 
 const Bus = mongoose.model("bus", bus);
