@@ -1,14 +1,16 @@
 import data from "./mock_data/mock_res";
-import bus from "./schemas/bus";
+import BusModel from "./schemas/bus";
 import mongoose from "mongoose";
-
-const Bus = mongoose.model("bus", bus);
 
 export const getBus = (req, res) => {
   const query = req.params.number;
-  data.get_busses_number.bus_number = query;
-  Bus.create(data.post_bus);
-  return res.json(data.get_busses_number);
+  // data.get_busses_number.bus_number = query;
+  const bus = new BusModel(data)
+  bus.save(bus)
+  .then(doc => console.log(doc))
+  .catch(e => console.log(e))
+  // return res.json(data.get_busses_number);
+  return res.json(bus)
 };
 
 export const getManyBusses = (req, res) => {

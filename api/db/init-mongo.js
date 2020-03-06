@@ -1,6 +1,5 @@
-const secrets = require("./secrets/secrets");
 db.createUser({
-  user: secrets.username,
-  pwd: secrets.pwd,
+  user: "michael",
+  pwd: "Copella123!",
   roles: [{ role: "readWrite", db: "busses" }]
 });
