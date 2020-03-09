@@ -12,7 +12,6 @@ export default {
   post_bus: {
     bus_number: 23,
     country: "England",
-    county: "Gloucestershire",
-    date_created: Date.now()
+    county: "Gloucestershire"
   }
 };
