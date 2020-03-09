@@ -2,9 +2,7 @@ FROM node:13
 
 WORKDIR /busio
 
-COPY .babelrc ./docker-entrypoint.sh index.js package*.json ./
-COPY src/ src/
-COPY db/ db/
+COPY . .
 
 RUN npm i && mkdir bin/
 

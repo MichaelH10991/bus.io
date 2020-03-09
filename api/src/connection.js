@@ -2,9 +2,8 @@ import mongoose from 'mongoose'
 import "regenerator-runtime/runtime";
 const db = mongoose.connection
 const url = process.env.MONGO_CONNECT_URL;
-const database = process.env.MONGO_DATABASE;
-// const connection_url = `${url}/${database}`
-const connection_url = "mongodb://127.0.0.1:27017/busses"
+const database = process.env.MONGO_INITDB_DATABASE;
+const connection_url = `${url}/${database}`
 //https://www.freecodecamp.org/news/introduction-to-mongoose-for-mongodb-d2a7aa593c57/
 
 class Database {

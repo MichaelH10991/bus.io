@@ -8,5 +8,5 @@ db.connection()
 
 app.listen(
   PORT,
-  console.log(`bus_api listening on https://127.0.0.1:${PORT}/api`)
+  console.log(`bus_api listening on http://localhost:${PORT}/api`)
 );

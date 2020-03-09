@@ -1,13 +1,8 @@
 node_modules
 
-mongo_docker.env
-bus_api.env
-
-secrets.js
 bin/
 data
-init-mongo.js
 
-api/bin/app
-api/bin/controller
-api/bin/router
+bus_api_secrets.env
+mongo_docker.env
+init_mongo.js
