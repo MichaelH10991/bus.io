@@ -5,7 +5,8 @@ import mongoose from "mongoose";
 export const getBus = (req, res) => {
   const query = req.params.number;
   // data.get_busses_number.bus_number = query;
-  const bus = new BusModel(data)
+  console.log(data.post_bus)
+  const bus = new BusModel(data.post_bus)
   bus.save(bus)
   .then(doc => console.log(doc))
   .catch(e => console.log(e))
