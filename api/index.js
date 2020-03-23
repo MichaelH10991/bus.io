@@ -1,9 +1,8 @@
 const app = require("./bin/app");
 const Database = require('./bin/connection')
 const PORT = process.env.PORT || 8080;
-
 const db = new Database()
-db._connect()
+
 db.connection()
 
 app.listen(

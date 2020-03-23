@@ -1,6 +1,6 @@
 import express from "express";
 import {
-  getBus,
+  getSingleBus,
   getManyBusses,
   saveBusses,
   findPlaces,
@@ -14,7 +14,7 @@ const router = express.Router();
  */
 router.get("/busses/:number", (req, res) => {
   console.log(`GET: /busses/${req.params.number}`);
-  getBus(req, res);
+  getSingleBus(req, res)
 });
 
 /**
@@ -30,7 +30,7 @@ router.get("/busses", (req, res) => {
  */
 router.post("/busses", (req, res) => {
   console.log(`POST: /busses`);
-  saveBusses(req, res);
+  res.json(saveBusses(req, res));
 });
 
 router.get("/places", (req, res) => {

@@ -9,7 +9,7 @@ const connection_url = `${url}/${database}`
 class Database {
     // starts the connection
     constructor(){
-        // this._connect()
+        this._connect()
     }
 
 async _connect() {
