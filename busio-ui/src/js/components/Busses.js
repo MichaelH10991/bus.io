@@ -11,14 +11,12 @@ export class Busses extends Component {
 
   render() {
     return (
-      <div>
-        {this.props.busses.map(el => (
+      <div >
+        {this.props.busses.map(bus => (
           // <li key={el._id}>{el.bus_number}, {el.country}, {el.county}, {el.date_created}</li>
-          <Bus bus={el}/>
+          <Bus key={bus._id} bus={bus}/>
         ))}
       </div>
-
-
     );
   }
 }

@@ -37,7 +37,15 @@
   }
 }
 
-h1, p {
+h1, p, ul {
   padding: 0px;
   margin: 0px;
+}
+
+li {
+  display: block
+}
+
+input:focus {
+  outline-width: 0;
 }
