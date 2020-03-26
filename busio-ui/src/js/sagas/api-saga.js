@@ -16,5 +16,5 @@ function* workerSaga(action) {
     return fetch(url).then(response =>
       response.json()
     );
-}
+  }
 }

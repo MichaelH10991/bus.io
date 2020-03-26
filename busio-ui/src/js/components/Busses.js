@@ -6,7 +6,7 @@ import Bus from "./Bus"
 
 export class Busses extends Component {
   componentDidMount() {
-    this.props.getData("http://localhost:8080/api/busses/23");
+    this.props.getData("http://localhost:8080/api/busses/");
   }
 
   render() {

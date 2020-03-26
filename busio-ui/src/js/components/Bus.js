@@ -1,12 +1,21 @@
 import React from "react"
+import { connect } from "react-redux"
+import { deleteBus } from "../actions/index"
 
 /**
  * Definition for a single bus component
  * @param {Object} props 
  */
-const Bus = (props) => {
+const ConnectedBus = (props) => {
     const { bus_number, country, county } = props.bus
-    const style = bus_number % 2 === 0 ? blue : red 
+    const style = bus_number % 2 === 0 ? blue : red
+
+    function handleDelete(event) {
+        event.preventDefault()
+        const { _id } = props.bus
+        props.deleteBus({ _id })
+    }
+
     return (
         <div style={style}>
             <div style={header}>
@@ -26,6 +35,7 @@ const Bus = (props) => {
                 </ul>
             </div>
             </div>
+            <button onClick={handleDelete}></button>
         </div>
     )
 }
@@ -54,5 +64,13 @@ const header = {
     margin: "0",
     padding: "10px 10px 0px 10px"
 }
+
+function mapDispatchToProps(dispatch) {
+    return {
+        deleteBus: id => dispatch(deleteBus(id))
+    }
+}
+
+const Bus = connect(mapDispatchToProps, { deleteBus })(ConnectedBus)
 
 export default Bus
