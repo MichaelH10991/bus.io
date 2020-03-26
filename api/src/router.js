@@ -4,7 +4,7 @@ import {
   getManyBusses,
   saveBusses,
   findPlaces,
-  removeBus
+  deleteStoredBus
 } from "./controller.js";
 
 const router = express.Router();
@@ -38,9 +38,9 @@ router.get("/places", (req, res) => {
   res.json(data.get_busses_place);
 });
 
-router.delete("/bus/:id", (req, res) => {
-  console.log(`DELETE: /bus/${req.params.id}`);
-  res.json({ message: `deleted bus: ${req.params.id}` });
+router.delete("/busses/:id", (req, res) => {
+  console.log(`DELETE: /busses/${req.params.id}`);
+  deleteStoredBus(req, res);
 });
 
 router.get("/ping", (req, res) => {
