@@ -13,5 +13,19 @@ export default {
     bus_number: 23,
     country: "England",
     county: "Gloucestershire"
-  }
+  },
+  remote_busses: [
+    {
+      bus_number: 23,
+      times: ["08:30", "09:00", "09:30", "10:00"],
+      county: "Gloucestershire",
+      counrty: "England"
+    },
+    {
+      bus_number: 22,
+      times: ["08:30", "09:00", "09:30", "10:00"],
+      county: "Gloucestershire",
+      counrty: "England"
+    }
+  ]
 };

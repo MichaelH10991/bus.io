@@ -54,4 +54,6 @@ const handleSendResponse = (res, message, code = 200, bus = "", id = "") => {
   return res.status(code).json({message, bus, id})
 }
 
-export const getRemoteBusses = (req, res) => {}
+export const getRemoteBusses = (req, res) => {
+  res.send(data.remote_busses)
+}

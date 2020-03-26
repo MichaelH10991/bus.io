@@ -4,7 +4,8 @@ import {
   getManyBusses,
   saveBusses,
   findPlaces,
-  deleteStoredBus
+  deleteStoredBus, 
+  getRemoteBusses
 } from "./controller.js";
 
 const router = express.Router();
@@ -14,7 +15,7 @@ const router = express.Router();
  */
 router.get("/busses/:number", (req, res) => {
   console.log(`GET: /busses/${req.params.number}`);
-  getSingleBus(req, res)
+  // getSingleRemoteBus(req, res)
 });
 
 /**
@@ -22,8 +23,19 @@ router.get("/busses/:number", (req, res) => {
  */
 router.get("/busses", (req, res) => {
   console.log(`GET: /busses`);
-  getManyBusses(req, res);
+  getRemoteBusses(req, res);
+
 });
+
+router.get("/saved/:number", (req, res) => {
+  console.log(`GET: /saved/${req.params.number}`);
+  getSingleBus(req, res)
+})
+
+router.get("/saved", (req, res) => {
+  console.log(`GET: /saved`)
+  getManyBusses(req, res);
+})
 
 /**
  * post to mongo with json body
@@ -38,8 +50,8 @@ router.get("/places", (req, res) => {
   res.json(data.get_busses_place);
 });
 
-router.delete("/busses/:id", (req, res) => {
-  console.log(`DELETE: /busses/${req.params.id}`);
+router.delete("/saved/:id", (req, res) => {
+  console.log(`DELETE: /saved/${req.params.id}`);
   deleteStoredBus(req, res);
 });
 
