@@ -30,7 +30,7 @@ router.get("/busses", (req, res) => {
  */
 router.post("/busses", (req, res) => {
   console.log(`POST: /busses`);
-  res.json(saveBusses(req, res));
+  saveBusses(req, res);
 });
 
 router.get("/places", (req, res) => {
