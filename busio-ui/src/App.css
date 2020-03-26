@@ -37,13 +37,49 @@
   }
 }
 
-h1, p, ul {
+.cardContent {
+  display: inline-flex;
+  margin: 0px 5px;
+  padding: 0px 5px 5px 5px;
+}
+
+.cardHeading {
+  margin: 0px;
+  padding: 10px 10px 0px 10px;
+}
+
+.cardButton {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    border-style: none;
+    background: none;
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    padding: 0px;
+}
+
+h1, p {
   padding: 0px;
   margin: 0px;
 }
 
+p {
+  padding: 5px;
+  margin: 5px;
+}
+
+ul {
+  padding: 0px;
+  margin: 5px;
+}
+
 li {
   display: block
+}
+
+button:focus {
+  outline-width: 0;
 }
 
 input:focus {

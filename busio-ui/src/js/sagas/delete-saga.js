@@ -13,7 +13,7 @@ function* workerSaga(action) {
   }
 
   function deleteBus(id){
-      const url = "http://localhost:8080/api/busses"
+      const url = "http://localhost:8080/api/saved"
     return fetch(`${url}/${id}`, {
         method: 'DELETE'
     }).then(response =>

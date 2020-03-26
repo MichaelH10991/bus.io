@@ -1,3 +1,4 @@
 export const DELETE_BUS = "DELETE_BUS"
 export const DATA_REQUESTED = "DATA_REQUESTED"
 export const DATA_LOADED = "DATA_LOADED"
+export const CLEAN_UP_REMOTE = "CLEAN_UP_REMOTE"

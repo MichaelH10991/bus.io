@@ -1,19 +1,21 @@
 
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getData } from "../actions/index";
+import { getData, cleanUpState } from "../actions/index";
 import Bus from "./Bus"
 
 export class Busses extends Component {
   componentDidMount() {
-    this.props.getData("http://localhost:8080/api/busses/");
+    this.props.getData("http://localhost:8080/api/saved/");
+  }
+  componentWillUnmount() {
+    this.props.cleanUpState()
   }
 
   render() {
     return (
       <div >
         {this.props.busses.map(bus => (
-          // <li key={el._id}>{el.bus_number}, {el.country}, {el.county}, {el.date_created}</li>
           <Bus key={bus._id} bus={bus}/>
         ))}
       </div>
@@ -27,4 +29,6 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { getData })(Busses);
+
+
+export default connect(mapStateToProps, { getData, cleanUpState })(Busses);

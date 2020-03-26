@@ -7,8 +7,16 @@ import { deleteBus } from "../actions/index"
  * @param {Object} props 
  */
 const ConnectedBus = (props) => {
+
     const { bus_number, country, county } = props.bus
-    const style = bus_number % 2 === 0 ? blue : red
+
+    const cardStyle = {
+        borderStyle: "5px solid black",
+        margin: "5px 5px",
+        backgroundColor: bus_number % 2 === 0 ? "rgb(97, 159, 253)" : "#ff5d5d",
+        borderRadius: "10px",
+        position: "relative"
+    }
 
     function handleDelete(event) {
         event.preventDefault()
@@ -17,52 +25,29 @@ const ConnectedBus = (props) => {
     }
 
     return (
-        <div style={style}>
-            <div style={header}>
+        <div style={cardStyle}>
+            <button className={"cardButton"} onClick={handleDelete}>x</button>
+            <div>
+            <div className={"cardHeading"}>
                 <h1>{bus_number}</h1>
             </div>
-            <div style={content}>
+            <div className={"cardContent"}>
             <div>
-                <ul style={{ margin: "5px" }}>
+                <ul>
                     <li><strong>{country}</strong></li>
                     <li>{county}</li>
                 </ul>
             </div>
+            </div>
+            </div>
             <div>
-                <ul style={{ margin: "5px" }}>
-                    <li>thing</li>
-                    <li>thing</li>
-                </ul>
-            </div>
-            </div>
-            <button onClick={handleDelete}></button>
+            <ul>
+                <li>thing</li>
+                <li>thing</li>
+            </ul>
+        </div>
         </div>
     )
-}
-
-const red = {
-    borderStyle: "5px solid black",
-    margin: "5px 5px",
-    backgroundColor: "#ff5d5d",
-    borderRadius: "10px"
-}
-
-const blue = {
-    borderStyle: "2px solid #619ffd",
-    margin: "5px 5px",
-    backgroundColor: "rgb(97, 159, 253)",
-    borderRadius: "10px"
-}
-
-const content = {
-    display: "inline-flex",
-    margin: "0px 5px",
-    padding: "0px 5px 5px 5px"
-}
-
-const header = {
-    margin: "0",
-    padding: "10px 10px 0px 10px"
 }
 
 function mapDispatchToProps(dispatch) {
