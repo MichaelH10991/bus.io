@@ -17,15 +17,36 @@ export default {
   remote_busses: [
     {
       bus_number: 23,
-      times: ["08:30", "09:00", "09:30", "10:00"],
       county: "Gloucestershire",
-      counrty: "England"
+      times: ["08:30", "09:00", "09:30", "10:00"],
+      country: "England"
     },
     {
       bus_number: 22,
-      times: ["08:30", "09:00", "09:30", "10:00"],
       county: "Gloucestershire",
-      counrty: "England"
+      times: ["08:30", "09:00", "09:30", "10:00"],
+      country: "England"
+    },
+    {
+      bus_number: 24,
+      county: "Gloucestershire",
+      times: ["08:30", "09:00", "09:30", "10:00"],
+      country: "England"
+    },
+    {
+      bus_number: 31,
+      county: "Gloucestershire",
+<<<<<<< HEAD
+=======
+      times: ["08:30", "09:00", "09:30", "10:00"],
+      country: "England"
+    },
+    {
+      bus_number: 30,
+      county: "Gloucestershire",
+      times: ["08:30", "09:00", "09:30", "10:00"],
+>>>>>>> 4895bf9... updating controller and mock_data
+      country: "England"
     }
   ]
-};
+}

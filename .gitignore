@@ -6,3 +6,8 @@ data
 bus_api_secrets.env
 mongo_docker.env
 init_mongo.js
+
+.terraform
+*tfstate*
+.DS_Store
+*.zip

@@ -5,12 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "transpile": "babel src --out-dir bin/ --source-maps inline --watch & ",
-    "start": "npm run transpile && nodemon index.js"
+    "transpile:dev": "babel src --out-dir bin/ --source-maps inline --watch & ",
+    "transpile": "babel src --out-dir bin/ --source-maps inline",
+    "start": "npm run transpile:dev && nodemon index.js",
+    "package": "bash utils/package.sh",
+    "deploy": "bash utils/deploy.sh"
   },
   "author": "Michael Humphries",
   "license": "ISC",
   "dependencies": {
+    "aws-serverless-express": "^3.3.8",
+    "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
