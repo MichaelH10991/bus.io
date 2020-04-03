@@ -13,8 +13,12 @@ function* workerSaga(action) {
   }
 
   function postData(url, data) {
+    console.log(data)
     return fetch(url, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify(data)
     })
       .then(response => {
