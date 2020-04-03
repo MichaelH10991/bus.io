@@ -1,9 +1,6 @@
 import data from "./mock_data/mock_res"
 import BusModel from "./schemas/bus"
-<<<<<<< HEAD
-=======
 import axios from "axios"
->>>>>>> 4895bf9... updating controller and mock_data
 
 export const getSingleBus = async (req, res) => {
   const { number } = req.params
@@ -21,33 +18,18 @@ export const getManyBusses = async (req, res) => {
 }
 
 export const saveBusses = async (req, res) => {
-<<<<<<< HEAD
-  const { bus_number } = req.body
-  const busses = await BusModel.find({ bus_number })
-=======
   const { bus_number, county } = req.body
   const busses = await BusModel.find({ bus_number, county })
->>>>>>> 4895bf9... updating controller and mock_data
   console.log("checking for duplicate bus numbers ...")
   if (busses.length >= 1) {
     console.log("bus exists")
     // there is a bug here, busses that are saved with no number
-<<<<<<< HEAD
-    return handleSendResponse(res, "bus already exists", 400, bus_number)
-=======
     return handleSendResponse(res, "bus already exists", 400, busses[0])
->>>>>>> 4895bf9... updating controller and mock_data
   }
   const Bus = new BusModel(req.body)
   console.log(`saving to database`)
   console.log("request body: ", req.body)
   await Bus.save(Bus)
-<<<<<<< HEAD
-  return handleSendResponse(res, "bus saved successfully", 200, Bus.bus_number, Bus._id)
-}
-
-export const findPlaces = (req, res) => {}
-=======
   return handleSendResponse(res, "bus saved successfully", 200, Bus)
 }
 
@@ -55,7 +37,6 @@ export const findPlaces = (req, res) => {
   const url = `${process.env.TRANSPORT_API_URL}/v3/uk/places.json?lat=51.534121&lon=-0.006944&type=bus_stop&app_id=${process.env.APP_ID}&app_key=${process.env.APP_KEY}`
   // http://transportapi.com/v3/uk/places.json?lat=51.534121&lon=-0.006944&type=bus_stop
 }
->>>>>>> 4895bf9... updating controller and mock_data
 
 export const deleteStoredBus = async (req, res) => {
   const { id } = req.params
