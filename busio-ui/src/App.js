@@ -1,6 +1,6 @@
 import React from "react"
 import { BrowserRouter as Router, Route } from "react-router-dom"
-import { About, Bus, Busses, Find, Heading, Menu, RemoteBus, Search } from "./js/components/index"
+import { About, Bus, Busses, Find, Heading, Menu, BusStop, Search } from "./js/components/index"
 import "./App.css"
 
 const App = () => (
@@ -11,7 +11,7 @@ const App = () => (
         <Route
           exact
           path="/"
-          render={props => (
+          render={(props) => (
             <React.Fragment>
               <Search />
               <Busses />
@@ -20,7 +20,7 @@ const App = () => (
         />
         <Route
           path="/find"
-          render={props => (
+          render={(props) => (
             <React.Fragment>
               <Search />
               <Find />
@@ -29,7 +29,7 @@ const App = () => (
         />
         <Route
           path="/about"
-          render={props => (
+          render={(props) => (
             <React.Fragment>
               <Search />
             </React.Fragment>
@@ -42,7 +42,7 @@ const App = () => (
 
 const container = {
   width: "80%",
-  margin: "auto"
+  margin: "auto",
 }
 
 export default App

@@ -4,7 +4,7 @@ import Busses from "./Busses"
 import Find from "./Find"
 import Heading from "./Heading"
 import Menu from "./Menu"
-import RemoteBus from "./RemoteBus"
+import BusStop from "./BusStop"
 import Search from "./Search"
 
-export { About, Bus, Busses, Find, Heading, Menu, RemoteBus, Search }
+export { About, Bus, Busses, Find, Heading, Menu, BusStop, Search }

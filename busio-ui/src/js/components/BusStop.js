@@ -6,8 +6,9 @@ import { saveBus } from "../actions/index"
  * Definition for a single bus component
  * @param {Object} props
  */
-const ConnectedRemoteBus = props => {
-  const { bus_number, country, county } = props.bus
+const ConnectedBusStop = (props) => {
+  // const { bus_number, country, county } = props.bus
+  const { name, description, atcocode } = props.stop
 
   const cardStyle = {
     borderStyle: "5px solid black",
@@ -15,10 +16,11 @@ const ConnectedRemoteBus = props => {
     backgroundColor: "rgb(183, 177, 177)",
     borderRadius: "10px",
     position: "relative",
-    border: "3px solid #949494"
+    border: "3px solid #949494",
+    padding: "5px",
   }
 
-  const handleSave = event => {
+  const handleSave = (event) => {
     event.preventDefault()
     props.saveBus("http://localhost:8080/api/busses/", props.bus)
   }
@@ -27,36 +29,37 @@ const ConnectedRemoteBus = props => {
     <div style={cardStyle}>
       <div>
         <div className={"cardHeading"}>
-          <h1>{bus_number}</h1>
+          {/* <h1>{bus_number}</h1> */}
+          <h1>{name}</h1>
         </div>
         <div className={"cardContent"}>
           <div>
             <ul>
-              <li>
-                <strong>{country}</strong>
-              </li>
-              <li>{county}</li>
+              <li>{description}</li>
+              <li>{atcocode}</li>
+              <li>{/* <strong>{country}</strong> */}</li>
+              {/* <li>{county}</li> */}
             </ul>
           </div>
         </div>
       </div>
       <div>
         <ul>
-          <li>thing</li>
-          <li>thing</li>
+          {/* <li>thing</li> */}
+          {/* <li>thing</li> */}
         </ul>
       </div>
-      <button onClick={handleSave}>save</button>
+      {/* <button onClick={handleSave}>save</button> */}
     </div>
   )
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    saveBus: bus => dispatch(saveBus(bus))
+    saveBus: (bus) => dispatch(saveBus(bus)),
   }
 }
 
-const RemoteBus = connect(mapDispatchToProps, { saveBus })(ConnectedRemoteBus)
+const BusStop = connect(mapDispatchToProps, { saveBus })(ConnectedBusStop)
 
-export default RemoteBus
+export default BusStop

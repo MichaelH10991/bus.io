@@ -6,7 +6,7 @@ import { deleteBus } from "../actions/index"
  * Definition for a single bus component
  * @param {Object} props
  */
-const ConnectedBus = props => {
+const ConnectedBus = (props) => {
   const { bus_number, country, county } = props.bus
 
   const cardStyle = {
@@ -14,7 +14,8 @@ const ConnectedBus = props => {
     margin: "5px 5px",
     backgroundColor: bus_number % 2 === 0 ? "rgb(97, 159, 253)" : "#ff5d5d",
     borderRadius: "10px",
-    position: "relative"
+    position: "relative",
+    padding: "5px",
   }
 
   function handleDelete(event) {
@@ -33,14 +34,12 @@ const ConnectedBus = props => {
           <h1>{bus_number}</h1>
         </div>
         <div className={"cardContent"}>
-          <div>
-            <ul>
-              <li>
-                <strong>{country}</strong>
-              </li>
-              <li>{county}</li>
-            </ul>
-          </div>
+          <ul>
+            <li>
+              <strong>{country}</strong>
+            </li>
+            <li>{county}</li>
+          </ul>
         </div>
       </div>
       <div>
@@ -55,7 +54,7 @@ const ConnectedBus = props => {
 
 function mapDispatchToProps(dispatch) {
   return {
-    deleteBus: id => dispatch(deleteBus(id))
+    deleteBus: (id) => dispatch(deleteBus(id)),
   }
 }
 

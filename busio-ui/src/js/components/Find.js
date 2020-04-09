@@ -1,30 +1,30 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { getRemoteData, cleanUpRemote } from "../actions/index"
-import Bus from "./Bus"
-import RemoteBus from "./RemoteBus"
+import BusStop from "./BusStop"
 
 export class ConnectedFind extends Component {
   componentDidMount() {
-    this.props.getRemoteData("http://localhost:8080/api/busses/")
+    this.props.getRemoteData("http://localhost:8080/api/places/")
   }
   componentWillUnmount() {
     this.props.cleanUpRemote()
   }
+
   render() {
     return (
       <div>
-        {this.props.busses.map(bus => (
-          <RemoteBus bus={bus} />
+        {this.props.stops.map((stop) => (
+          <BusStop stop={stop} />
         ))}
       </div>
     )
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    busses: state.remoteBusses.slice(0, 10)
+    stops: state.remoteBusses.slice(0, 10),
   }
 }
 
