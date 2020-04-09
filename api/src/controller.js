@@ -33,9 +33,16 @@ export const saveBusses = async (req, res) => {
   return handleSendResponse(res, "bus saved successfully", 200, Bus)
 }
 
-export const findPlaces = (req, res) => {
-  const url = `${process.env.TRANSPORT_API_URL}/v3/uk/places.json?lat=51.534121&lon=-0.006944&type=bus_stop&app_id=${process.env.APP_ID}&app_key=${process.env.APP_KEY}`
-  // http://transportapi.com/v3/uk/places.json?lat=51.534121&lon=-0.006944&type=bus_stop
+export const findPlaces = async (req, res) => {
+  const lat = 51.7643203
+  const lon = -2.4814856
+  const url = `${process.env.TRANSPORT_API_URL}/v3/uk/places.json?lat=${lat}&lon=${lon}&type=bus_stop&app_id=${process.env.APP_ID}&app_key=${process.env.APP_KEY}`
+  const response = await axios({
+    method: "get",
+    url: url,
+  })
+  console.log(response.data.member)
+  return res.status(200).json(response.data.member)
 }
 
 export const deleteStoredBus = async (req, res) => {
@@ -66,12 +73,15 @@ const handleSendResponse = (res, message, code = 200, bus) => {
 }
 
 export const getRemoteBusses = async (req, res) => {
+  const { atcocode } = req.params
+
   // const { service_number } = req.params
-  // const url = `${process.env.TRANSPORT_API_URL}/v3/uk/bus/services/SCGL:${service_number}.json?app_id=${process.env.APP_ID}&app_key=${process.env.APP_KEY}`
-  // const response = await axios({
-  //   method: "get",
-  //   url: url
-  // })
-  // return res.json(response.data)
-  return res.json(data.remote_busses)
+  const url = `${process.env.TRANSPORT_API_URL}/v3/uk/bus/stop/${atcocode}/live.json?app_id=${process.env.APP_ID}&app_key=${process.env.APP_KEY}&group=route`
+  const response = await axios({
+    method: "get",
+    url: url,
+  })
+  console.log(response.data)
+  return res.status(200).json(response.data)
+  // return res.json(data.remote_busses)ss
 }

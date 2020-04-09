@@ -5,7 +5,7 @@ import {
   saveBusses,
   findPlaces,
   deleteStoredBus,
-  getRemoteBusses
+  getRemoteBusses,
 } from "./controller.js"
 
 const router = express.Router()
@@ -13,8 +13,8 @@ const router = express.Router()
 /**
  * Get single bus from external api
  */
-router.get("/busses/:service_number", (req, res) => {
-  console.log(`GET: /busses/${req.params.service_number}`)
+router.get("/busses/:atcocode", (req, res) => {
+  console.log(`GET: /busses/${req.params.atcocode}`)
   getRemoteBusses(req, res)
 })
 
@@ -46,7 +46,7 @@ router.post("/busses", (req, res) => {
 
 router.get("/places", (req, res) => {
   console.log(`GET: /places`)
-  res.json(data.get_busses_place)
+  findPlaces(req, res)
 })
 
 router.delete("/saved/:id", (req, res) => {
