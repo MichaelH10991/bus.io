@@ -1,6 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 import { saveBus } from "../actions/index"
+import { RemoteBus } from "./index"
 
 /**
  * Definition for a single bus component
@@ -36,7 +37,7 @@ const ConnectedBusStop = (props) => {
           <div>
             <ul>
               <li>{description}</li>
-              <li>{atcocode}</li>
+              <RemoteBus atcocode={atcocode} />
               <li>{/* <strong>{country}</strong> */}</li>
               {/* <li>{county}</li> */}
             </ul>

@@ -32,6 +32,7 @@ const App = () => (
           render={(props) => (
             <React.Fragment>
               <Search />
+              <About />
             </React.Fragment>
           )}
         />

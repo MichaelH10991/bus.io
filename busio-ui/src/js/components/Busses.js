@@ -14,7 +14,7 @@ export class Busses extends Component {
   render() {
     return (
       <div>
-        {this.props.busses.map(bus => (
+        {this.props.busses.map((bus) => (
           <Bus key={bus._id} bus={bus} />
         ))}
       </div>
@@ -24,7 +24,7 @@ export class Busses extends Component {
 
 function mapStateToProps(state) {
   return {
-    busses: state.savedBusses.slice(0, 10)
+    busses: state.savedBusses.slice(0, 10),
   }
 }
 

@@ -34,21 +34,23 @@ export const saveBusses = async (req, res) => {
 }
 
 export const findPlaces = async (req, res) => {
-  const lat = 51.7643203
-  const lon = -2.4814856
+  // const lat = 51.7643203
+  // const lon = -2.4814856
+  const lat = 51.8644686
+  const lon = -2.2418429
   const url = `${process.env.TRANSPORT_API_URL}/v3/uk/places.json?lat=${lat}&lon=${lon}&type=bus_stop&app_id=${process.env.APP_ID}&app_key=${process.env.APP_KEY}`
   const response = await axios({
     method: "get",
     url: url,
   })
-  console.log(response.data.member)
+  // console.log(response.data.member)
   return res.status(200).json(response.data.member)
 }
 
 export const deleteStoredBus = async (req, res) => {
   const { id } = req.params
   const bus = await BusModel.findOne({ _id: id })
-  console.log(bus)
+  // console.log(bus)
   if (!bus) return res.status(404).json({ message: "could not find bus" })
   await BusModel.deleteOne({ _id: bus._id })
   const count = await bussesCount()
@@ -65,7 +67,7 @@ const handleSendResponse = (res, message, code = 200, bus) => {
   if (!message) throw new Error("must have a message")
   if (bus) {
     const { _id, bus_number, county } = bus
-    console.log(bus)
+    // console.log(bus)
     if (!code) return res.json({ message, _id, bus_number, county })
     return res.status(code).json({ message, _id, bus_number, county })
   }
@@ -74,6 +76,7 @@ const handleSendResponse = (res, message, code = 200, bus) => {
 
 export const getRemoteBusses = async (req, res) => {
   const { atcocode } = req.params
+  const busses = []
 
   // const { service_number } = req.params
   const url = `${process.env.TRANSPORT_API_URL}/v3/uk/bus/stop/${atcocode}/live.json?app_id=${process.env.APP_ID}&app_key=${process.env.APP_KEY}&group=route`
@@ -81,7 +84,11 @@ export const getRemoteBusses = async (req, res) => {
     method: "get",
     url: url,
   })
-  console.log(response.data)
-  return res.status(200).json(response.data)
+  // console.log(response.data)
+  const departures = response.data.departures
+  for (let keys in departures) {
+    busses.push({ bus_number: keys, departures: departures[keys] })
+  }
+  return res.status(200).json(busses)
   // return res.json(data.remote_busses)ss
 }

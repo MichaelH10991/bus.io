@@ -6,5 +6,6 @@ import Heading from "./Heading"
 import Menu from "./Menu"
 import BusStop from "./BusStop"
 import Search from "./Search"
+import RemoteBus from "./RemoteBus"
 
-export { About, Bus, Busses, Find, Heading, Menu, BusStop, Search }
+export { About, Bus, Busses, Find, Heading, Menu, BusStop, Search, RemoteBus }

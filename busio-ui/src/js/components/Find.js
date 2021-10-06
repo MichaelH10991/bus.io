@@ -24,7 +24,7 @@ export class ConnectedFind extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    stops: state.remoteBusses.slice(0, 10),
+    stops: state.remoteBusses.slice(0, 1),
   }
 }
 
